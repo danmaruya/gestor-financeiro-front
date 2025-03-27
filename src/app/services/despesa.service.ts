@@ -18,4 +18,16 @@ export class DespesaService {
   retornarTodasAsDespesas() {
     return this.http.get<IDespesa[]>(`${this.api}/${this.endpoint}`);
   }
+
+  buscarDespesaPorId(id: number) {
+    return this.http.get<IDespesa>(`${this.api}/${this.endpoint}/${id}`, );
+  }
+
+  editarDespesa(id: number, despesa: IDespesa) {
+    return this.http.put<IDespesa>(`${this.api}/${this.endpoint}/${id}`, despesa);
+  }
+
+  deletarDespesa(id: number) {
+    return this.http.delete<IDespesa>(`${this.api}/${this.endpoint}/${id}`);
+  }
 }

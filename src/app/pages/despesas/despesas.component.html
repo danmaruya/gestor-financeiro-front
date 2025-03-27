@@ -15,11 +15,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let despesa of despesa">
-      <th scope="row">{{despesa.id}}</th>
+      <td>{{despesa.id}}</td>
       <td>{{despesa.nome}}</td>
       <td>{{despesa.categoria}}</td>
       <td>{{despesa.data}}</td>
       <td>{{despesa.valor | currency: 'BRL'}}</td>
+      <mat-icon routerLink="/despesas/editar/{{despesa.id}}" style="margin-right: 10px;">edit</mat-icon>
+      <mat-icon (click)="deletar(despesa)">delete</mat-icon>
     </tr>
   </tbody>
 </table>

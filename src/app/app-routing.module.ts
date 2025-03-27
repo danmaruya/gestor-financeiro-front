@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { CadastrarDespesaComponent as CadastrarDespesaComponent } from './pages/cadastrar-despesa/cadastrar-despesa.component';
 import { DespesasComponent } from './pages/despesas/despesas.component';
+import { EditarDespesasComponent } from './pages/editar-despesas/editar-despesas.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   {
     path: 'despesas/cadastrar', component: CadastrarDespesaComponent
   },
+  {
+    path: 'despesas/editar/:id', component: EditarDespesasComponent
+  }
 ];
 
 @NgModule({
