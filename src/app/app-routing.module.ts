@@ -19,7 +19,7 @@ const routes: Routes = [
     path: 'despesas/cadastrar', component: CadastrarDespesaComponent
   },
   {
-    path: 'despesas/editar/:id', component: EditarDespesasComponent
+    path: 'despesas/editar/:idDespesa', component: EditarDespesasComponent
   }
 ];
 

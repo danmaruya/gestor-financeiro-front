@@ -1,5 +1,5 @@
 export interface IDespesa {
-  id: number
+  idDespesa: number
   nome: string;
   categoria: string;
   data: string;

@@ -19,15 +19,15 @@ export class DespesaService {
     return this.http.get<IDespesa[]>(`${this.api}/${this.endpoint}`);
   }
 
-  buscarDespesaPorId(id: number) {
-    return this.http.get<IDespesa>(`${this.api}/${this.endpoint}/${id}`, );
+  buscarDespesaPorId(idDespesa: number) {
+    return this.http.get<IDespesa>(`${this.api}/${this.endpoint}/${idDespesa}`, );
   }
 
-  editarDespesa(id: number, despesa: IDespesa) {
-    return this.http.put<IDespesa>(`${this.api}/${this.endpoint}/${id}`, despesa);
+  editarDespesa(idDespesa: number, despesa: IDespesa) {
+    return this.http.put<IDespesa>(`${this.api}/${this.endpoint}/${idDespesa}`, despesa);
   }
 
-  deletarDespesa(id: number) {
-    return this.http.delete<IDespesa>(`${this.api}/${this.endpoint}/${id}`);
+  deletarDespesa(idDespesa: number) {
+    return this.http.delete<IDespesa>(`${this.api}/${this.endpoint}/${idDespesa}`);
   }
 }

@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import { EditarDespesasComponent } from './pages//editar-despesas/editar-despesas.component';
+import { EditarDespesasComponent } from './pages/editar-despesas/editar-despesas.component';
 
 
 

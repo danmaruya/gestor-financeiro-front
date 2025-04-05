@@ -25,11 +25,11 @@ export class EditarDespesasComponent {
     valor: new FormControl(0, Validators.required),
   });
 
-  despesaId: number | undefined;
+  despesaId = 1;
   despesaIdStr = '';
 
   ngOnInit() {
-    this.despesaIdStr = this.route.snapshot.paramMap.get('id')!;
+    this.despesaIdStr = this.route.snapshot.paramMap.get('idDespesa')!;
     this.despesaId = Number(this.despesaIdStr);
     if (this.despesaId) {
       this.despesaService.buscarDespesaPorId(this.despesaId!).subscribe(
@@ -52,16 +52,8 @@ export class EditarDespesasComponent {
     }
   }
 
-  atualizar() {
+  editar() {
     const despesa: IDespesa = this.despesaForm.value as IDespesa;
-      if (despesa.id !== this.despesaId) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Erro',
-          text: 'Não é permitido alterar o Id da despesa.',
-        });
-        return;
-      }
       this.despesaService.editarDespesa(this.despesaId, despesa).subscribe(
         (result) => {
           Swal.fire(

@@ -1,1 +1,56 @@
-<p>editar-despesas works!</p>
+<h1 class="display-6 mt-3 p-2">Editar despesa</h1>
+<hr />
+
+<div class="container-fluid">
+  <form [formGroup]="despesaForm" (ngSubmit)="editar()">
+    <div class="row">
+      <div class="col-5">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input
+            id="nome"
+            type="text"
+            class="form-control"
+            formControlName="nome"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="categoria" class="form-label">Categoria</label>
+          <input
+            id="categoria"
+            type="text"
+            class="form-control"
+            formControlName="categoria"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="data" class="form-label">Data</label>
+          <input
+            id="da"
+            type="date"
+            class="form-control"
+            formControlName="data"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <div class="mb-3">
+          <label for="valor" class="form-label">Valor</label>
+          <input
+            id="valor"
+            type="number"
+            class="form-control"
+            formControlName="valor"
+          />
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!despesaForm.valid" class="btn btn-primary">Editar</button>
+  </form>
+</div>

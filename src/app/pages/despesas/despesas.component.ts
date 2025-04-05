@@ -20,15 +20,15 @@ export class DespesasComponent {
 
   deletar(despesa: IDespesa) {
     Swal.fire({
-      title: 'Exclusão de cliente do sistema',
-      text: 'Deseja excluir o cliente?',
+      title: 'Exclusão de despesa do sistema',
+      text: 'Deseja excluir a despesa?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Sim',
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.despesaService.deletarDespesa(despesa.id)
+        this.despesaService.deletarDespesa(despesa.idDespesa)
         .subscribe(
           () => {
           this.despesaService.retornarTodasAsDespesas().subscribe((result: IDespesa[]) => {
