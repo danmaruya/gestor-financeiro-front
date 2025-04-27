@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { EditarDespesasComponent } from './pages/editar-despesas/editar-despesas.component';
+import { RelatorioComponent } from './components/relatorio/relatorio.component';
 
 
 
@@ -22,7 +23,8 @@ import { EditarDespesasComponent } from './pages/editar-despesas/editar-despesas
     CadastrarDespesaComponent,
     NavbarComponent,
     DespesasComponent,
-    EditarDespesasComponent
+    EditarDespesasComponent,
+    RelatorioComponent
   ],
   imports: [
     BrowserModule,

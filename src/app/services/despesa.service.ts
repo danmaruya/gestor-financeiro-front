@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environment/environment';
 import { HttpClient } from '@angular/common/http';
 import { IDespesa } from '../interface/despesa';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,11 @@ export class DespesaService {
 
   deletarDespesa(idDespesa: number) {
     return this.http.delete<IDespesa>(`${this.api}/${this.endpoint}/${idDespesa}`);
+  }
+
+  gerarRelatorioDespesas(): Observable<Blob> {
+    return this.http.get(`${this.api}/${this.endpoint}/relatorio`, {
+      responseType: 'blob'
+    });
   }
 }
