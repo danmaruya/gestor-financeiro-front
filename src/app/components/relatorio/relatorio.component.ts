@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { DespesaService } from 'src/app/services/despesa.service';
 
 @Component({
+
   selector: 'app-relatorio',
   template: `
     <button (click)="gerarRelatorio()" [disabled]="loading">
@@ -27,19 +29,32 @@ import { DespesaService } from 'src/app/services/despesa.service';
       color: #d32f2f;
       margin-top: 10px;
     }
-  `]
+  `],
+
+  providers: [DatePipe]
 })
 export class RelatorioComponent {
+  @Input() dataInicio?: string;
+  @Input() dataFim?: string;
+
   loading = false;
   error: string | null = null;
 
-  constructor(private despesaService: DespesaService) {}
+  constructor(private datePipe: DatePipe, private despesaService: DespesaService) {}
 
   gerarRelatorio() {
+    const dataInicioFormatada = this.dataInicio
+    ? this.datePipe.transform(this.dataInicio, 'dd/MM/yyyy') || undefined
+    : undefined;
+
+  const dataFimFormatada = this.dataFim
+    ? this.datePipe.transform(this.dataFim, 'dd/MM/yyyy') || undefined
+    : undefined;
+
     this.loading = true;
     this.error = null;
 
-    this.despesaService.gerarRelatorioDespesas().subscribe({
+    this.despesaService.gerarRelatorioDespesas(dataInicioFormatada, dataFimFormatada).subscribe({
       next: (blob) => {
         this.downloadFile(blob);
         this.loading = false;

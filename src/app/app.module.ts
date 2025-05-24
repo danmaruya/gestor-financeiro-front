@@ -9,7 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DespesasComponent } from './pages/despesas/despesas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { EditarDespesasComponent } from './pages/editar-despesas/editar-despesas.component';
 import { RelatorioComponent } from './components/relatorio/relatorio.component';
@@ -32,7 +32,8 @@ import { RelatorioComponent } from './components/relatorio/relatorio.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

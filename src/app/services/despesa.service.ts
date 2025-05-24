@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environment/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { IDespesa } from '../interface/despesa';
 import { Observable } from 'rxjs';
 
@@ -32,9 +32,18 @@ export class DespesaService {
     return this.http.delete<IDespesa>(`${this.api}/${this.endpoint}/${idDespesa}`);
   }
 
-  gerarRelatorioDespesas(): Observable<Blob> {
-    return this.http.get(`${this.api}/${this.endpoint}/relatorio`, {
-      responseType: 'blob'
-    });
+  gerarRelatorioDespesas(dataInicio?: string, dataFim?: string): Observable<Blob> {
+    let params = new HttpParams();
+  if (dataInicio) {
+    params = params.set('dataInicio', dataInicio);
+  }
+  if (dataFim) {
+    params = params.set('dataFim', dataFim);
+  }
+
+  return this.http.get(`${this.api}/${this.endpoint}/relatorio`, {
+    responseType: 'blob',
+    params: params
+  });
   }
 }
